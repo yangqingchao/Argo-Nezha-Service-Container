@@ -19,10 +19,10 @@ echo -e "nameserver 127.0.0.11\nnameserver 8.8.4.4\nnameserver 223.5.5.5\nnamese
 cat > /dashboard/data/config.yaml << EOF
 debug: false
 site:
-  brand: Server Status
+  brand: Nezha Probe
   cookiename: nezha-dashboard
   theme: default
-   customcode: "<script>\r\nwindow.onload = function(){\r\nvar avatar=document.querySelector(\".item img\")\r\nvar footer=document.querySelector(\"div.is-size-7\")\r\nfooter.innerHTML=\"Powered by $GH_USER\"\r\nfooter.style.visibility=\"visible\"\r\navatar.src=\"https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png\"\r\navatar.style.visibility=\"visible\"\r\n}\r\n</script>"
+  customcode: "<script>\r\nwindow.onload = function(){\r\nvar avatar=document.querySelector(\".item img\")\r\nvar footer=document.querySelector(\"div.is-size-7\")\r\nfooter.innerHTML=\"<div class="ui center aligned is-size-7 container"><b>&copy; <a style="color: white;" href="/">{{.Conf.Site.Brand}}</a></b> | <small>Powered by <a href="https://github.com/naiba/nezha" style="color: white;" target="_blank">{{tr "NezhaMonitoring"}}</a>{{.Version}}</small></div>\"\r\nfooter.style.visibility=\"visible\"\r\navatar.src=\"https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png\"\r\navatar.style.visibility=\"visible\"\r\n}\r\n</script>"
   viewpassword: ""
 oauth2:
   type: github
